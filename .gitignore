@@ -1,0 +1,5 @@
+# Dependencies for the backend
+/backend/node_modules/
+
+# Dependencies for the frontend
+/frontend/node_modules/
