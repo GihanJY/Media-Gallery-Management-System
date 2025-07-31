@@ -3,3 +3,5 @@
 
 # Dependencies for the frontend
 /frontend/node_modules/
+
+/backend/.env
