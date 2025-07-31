@@ -1,13 +1,14 @@
 const { Router } = require("express");
+const { auth, adminAuth } = require("../middlewares/auth");
 const { adminDeleteMessage, createContact, deleteMessage, getAllMessages, getUserMessages, updateMessage } = require("../controllers/ContactController");
 
 const router = Router();
 
-router.get("/", getAllMessages);
-router.get("/", getUserMessages);
 router.post("/", createContact);
-router.put("/", updateMessage);
-router.delete("/", adminDeleteMessage);
-router.delete("/", deleteMessage);
+router.get("/messages", auth, getUserMessages);
+router.put("/:id", auth, updateMessage);
+router.delete("/:id", auth, deleteMessage);
+router.get("/admin", auth, adminAuth, getAllMessages);
+router.delete("/admin/:id", auth, adminAuth, adminDeleteMessage);
 
 module.exports = router;
