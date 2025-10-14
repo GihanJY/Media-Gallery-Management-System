@@ -5,6 +5,13 @@ const path = require("path");
 const fs = require("fs");
 const https = require("https");
 
+// Cloudinary configuration for server-side usage
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 // Upload media file
 const uploadMedia = async (req, res) => {
   try {
