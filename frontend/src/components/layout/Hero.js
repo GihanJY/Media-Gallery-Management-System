@@ -12,6 +12,10 @@ const Hero = () => {
     navigate("/dashboard");
   }
 
+  function handleGetStarted() {
+    navigate("/register");
+  }
+
   return (
     <div>
       {/* Left-aligned Hero with Image */}
@@ -21,7 +25,7 @@ const Hero = () => {
             <img 
               src="collage.png" 
               className="d-block mx-lg-auto img-fluid" 
-              alt="Bootstrap Themes" 
+              alt="Media Gallery Dashboard" 
               width="700" 
               height="500" 
               loading="lazy" 
@@ -29,30 +33,42 @@ const Hero = () => {
           </Col>
           <Col lg={6}>
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-              Responsive left-aligned hero with image
+              Organize, Manage, and Share Your Media Effortlessly
             </h1>
-            {isAuthenticated? <div>
-              <p className="lead">
-              Quickly design and customize { user?.name || "user" } responsive mobile-first sites with Bootstrap.
-            </p>
-            </div>: <div>
-              <p className="lead">
-              Quickly design and customize responsive mobile-first sites with Bootstrap.
-            </p></div>}
-            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              {isAuthenticated? 
+            {isAuthenticated ? (
               <div>
-                <Button variant="primary" size="lg" className="px-4 me-md-2" onClick={() => handleDashboardRedirect()}>
-                Go To Dashboard
-              </Button>
-              </div> : <div>
-                <Button variant="primary" size="lg" className="px-4 me-md-2">
-                Primary
-              </Button>
-              <Button variant="outline-secondary" size="lg" className="px-4">
-                Default
-              </Button>
-              </div>}
+                <p className="lead">
+                  Welcome back, {user?.name || "user"}! Your media gallery is ready. 
+                  Upload, organize, and share your photos and videos with powerful tools 
+                  designed for seamless content management.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <p className="lead">
+                  Transform the way you store and showcase your media. Our powerful gallery 
+                  management system helps you organize thousands of files, create stunning 
+                  collections, and share them with the world.
+                </p>
+              </div>
+            )}
+            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+              {isAuthenticated ? (
+                <div>
+                  <Button variant="primary" size="lg" className="px-4 me-md-2" onClick={handleDashboardRedirect}>
+                    Go To Dashboard
+                  </Button>
+                </div>
+              ) : (
+                <div>
+                  <Button variant="primary" size="lg" className="px-4 me-md-2" onClick={handleGetStarted}>
+                    Get Started Free
+                  </Button>
+                  <Button variant="outline-secondary" size="lg" className="px-4" onClick={() => navigate("/login")}>
+                    Sign In
+                  </Button>
+                </div>
+              )}
             </div>
           </Col>
         </Row>
