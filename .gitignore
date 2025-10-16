@@ -1,7 +1,16 @@
-# Dependencies for the backend
-/backend/node_modules/
+# backend
+backend/node_modules/
+backend/.env
+backend/dist/
 
-# Dependencies for the frontend
-/frontend/node_modules/
+# frontend
+frontend/node_modules/
+frontend/.env
+frontend/build/
 
-/backend/.env
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,8 +1,8 @@
-import React from "react";
 import Header from "../components/layout/Header";
 import Hero from "../components/layout/Hero";
 import Footer from "../components/layout/Footer";
-import Features from "../components/layout/Features";
+import Features from "../components/landing/Features";
+import Pricing from "../components/landing/Pricing";
 
 const Home = () => {
   return (
@@ -10,6 +10,7 @@ const Home = () => {
       <Header />
       <Hero />
       <Features />
+      <Pricing />
       <Footer />
     </div>
   );
