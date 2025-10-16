@@ -24,7 +24,7 @@ const Header = () => {
             height="30"
             className="d-inline-block align-top"
             alt="Company Logo"
-          />{" "}
+          />
           Media Gallery
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -32,6 +32,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           <Nav>
             {!isAuthenticated ? (
@@ -48,14 +49,16 @@ const Header = () => {
                 </Button>
               </>
             ) : (
-              <>
-                <span className="me-3 align-self-center fw-semibold">
-                  Welcome, {user?.name || "User"}
-                </span>
-                <Button variant="outline-danger" onClick={handleLogoutClick}>
+              <div className="d-flex align-items-center gap-3">
+                <span className="fw-semibold mb-0">{user?.name || "User"}</span>
+                <Button
+                  variant="outline-danger"
+                  size="sm"
+                  onClick={handleLogoutClick}
+                >
                   Logout
                 </Button>
-              </>
+              </div>
             )}
           </Nav>
         </Navbar.Collapse>

@@ -231,7 +231,7 @@ const googleAuth = async (req, res) => {
 
     // Check if user is active
     if (!user.isActive) {
-      return res.status(401).json({ 
+      return res.status(401).json({
         message: "Account has been deactivated" 
       });
     }

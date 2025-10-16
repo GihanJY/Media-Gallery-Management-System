@@ -35,8 +35,16 @@ const Dashboard = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <Container fluid className="px-4">
           <span className="navbar-brand mb-0 h1">Media Gallery</span>
-          <div className="d-flex align-items-center">
-            <span className="text-white me-3">Welcome, {user?.name || 'User'}</span>
+          <div className="d-flex align-items-center gap-3">
+            <img
+                  src={user?.avatar || "/user_placeholder.png"}
+                  alt={user.name}
+                  width={25}
+                  height={25}
+                  className="rounded-circle object-fit-cover"
+                  referrerPolicy="no-referrer"
+                />
+            <span className="text-white">{user?.name || 'User'}</span>
             <Button variant="outline-light" size="sm" onClick={handleLogout}>
               Logout
             </Button>
